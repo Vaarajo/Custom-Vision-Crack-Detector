@@ -33,7 +33,7 @@ Upon completing this lab, you will have hands-on experience with the following f
 
 ## Step 1 - Create Custom Vision Service
 
-* Login to [Azure Portal](https://portal.azure.com)
+* Log in to [Azure Portal](https://portal.azure.com)
 * Select **+ Create a resource**
 * In search box, type **Custom Vision** and click Enter
 * Select **Create**
