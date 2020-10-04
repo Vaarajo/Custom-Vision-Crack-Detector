@@ -133,6 +133,7 @@ Now that we have trained and published a custom machine learning model to detect
   * Name: **crack-inspection-files**
   * Public access level: container
 * Select **Create**
+* Upload sample image from **Concrete Cracks Dataset\Train\Positive**
 
 ## Step 9 - Create Logic App
 
@@ -150,7 +151,31 @@ Now that we have trained and published a custom machine learning model to detect
     * Location: select your preferred region
     * Log Analytics: Off
 * Select **Review + create**
-* SElect **Create**
+* Select **Create**
+* When the deployment is complete, select **Go to resource**
+ 
+## Step 10 - Build Logic App
 
-
+* Select **Blank Logic App +**
+* In search box type **Blob**, select from **Triggers** the option **When a blob is addedd or modified (properties only)**
+* Your new blob trigger should have the following properties:
+  * Connection Name: custvision<your initials>
+  * Prediction Key:
+     * Navigate to https://customvision.ai, open crack detector project and in the top row select **Performance**
+     * Select **Prediction URL**
+     * Copy the value for **Prediction-Key**
+     * Navigate back to Logic App Designer and past it as the Prediction Key
+  * Site URL: 
+     * Navigate to https://customvision.ai, open crack detector project and in the top right corner select **Settings**
+     * Copy the URL in **Endpoint**
+     * Navigate back to Logic App Designer and past it as the Site URL
+ * Select **Create**
+ * Project ID: 
+     * Navigate to https://customvision.ai, open crack detector project and in the top right corner select **Settings**
+     * Copy the id in **Project Id**
+     * Navigate back to Logic App Designer and past it as the Project ID
+ * Publish Name: Crack-Detector-Model
+     * Navigate to https://customvision.ai, open crack detector project and in the top row select **Performance**
+     * Select **Prediction URL**
+     * you can find the model name as part of prediction URL
 
