@@ -3,7 +3,7 @@
 ## Table of contents
 * [Overview](#overview)
 * [Challenge](#challenge)
-* [Learning Objectives](#Learning-Objectives)
+* [Learning Objectives](#learning-objectives)
 * [Pre-Requisites](#pre-requisites)
 
 # Overview	
@@ -45,21 +45,50 @@ Upon completing this lab, you will have hands-on experience with the following f
 * Your new project should have the following settings:
   * Name: Crack detector
   * Description: crack detector for predictive maintenance
-  * Resource: select the custom vision service created in [step 1](##  Step 1 - Create Custom Vision Service)
+  * Resource: select the custom vision service created in [step 1](##step-1---create-custom-vision-service)
   * Project Type: classification
   * Classification Types: Multiclass
   * Domain: General
+ * Select **Create Project**
 
 
-## Upload Training Images
+## Step 3 - Upload Training Images
 
 We will now add images for each tag from the corresponding folder in "Crack Detector Training Images". 
 
-* Click "Add Images" in the top row
-* Browse to Crack Detector Training Images / Positive
+* Click **+Add Images** in the top row
+* Browse to the folder **Concrete Cracks Dataset\Train\Positive**
 * Select all files: click one file, then press Control-A
-* Click Open
-* In the "Image Upload" dialog that appears next, type "positive"and then click "Upload XX Files"
-* repeat this process for the Negative tag
+* Click **Open**
+* In the **Image Upload** dialog that appears next, type **positive** under **My Tags** and then click **Upload 50 Files**
+* Click **Done**
+* Repeat this process for the Negative tag **Concrete Cracks Dataset\Train\Negative**
+
+## Step 4 - Train Classification Model
+
+* Select **Train** in top row, towards the right
+* Choose **Quick Training**
+* Click **Train** (please note the training should take a few minutes)
+
+## Step 5 - Test Classification Model
+
+* Spend a few minutes getting familiar with the performance tab and different performance metrics
+* Select **Quick Test** on the top row
+* Select **Browse local files**
+* Navigate to the folder **Concrete Cracks Dataset\Test\Positive** and select one of the images
+* Click **Open**
+* Confirm the prediction is correct
+
+## Step 6 - Publish Classification Model
+
+* Select **Publish** in second top row
+* Type **Crack-Detector-Model** as the **Model Name**
+* Select the **prediction resource** created on Step 1
+* Click **Publish**
+
+## Step 7 - 
+
+
+
 * Select train a model
 
