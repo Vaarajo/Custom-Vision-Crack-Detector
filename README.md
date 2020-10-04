@@ -5,6 +5,7 @@
 * [Challenge](#challenge)
 * [Learning Objectives](#learning-objectives)
 * [Pre-Requisites](#pre-requisites)
+* [Step-by-Step Guide](#step-by-step-guide)
 
 # Overview	
 This lab is intended to serve as an introduction to creating and consuming Azure Cognitive Services.
@@ -207,6 +208,15 @@ Now that we have trained and published a custom machine learning model to detect
    * To: your email address
    * Subject: Crack Detector Alert on <alert created date>
    * Body: Please review this image [List of Files Path] we are [Prediction Probability] confident, there is a crack on it!!
+ 
+## Step 11 - Run and Test Logic App
 
+* Select **Save** and then **Run** in logic app designer
+* Navigate to storage account eplorer preview in the azure portal
+* Navigate to **crack-inspection-files** container.
+* Upload a new image which contains a crack from **Concrete Cracks Dataset\Test\Positive**
+* Confirm if you have received an email in your inbox.
+* In [Azure Portal](https://portal.azure.com), navigate to your logic app and check status and output of each step.
+* Repeat the steps with an image with no cracks.
 
 
