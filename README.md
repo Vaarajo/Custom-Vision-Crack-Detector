@@ -101,9 +101,56 @@ We will now add images for each tag from the corresponding folder in "Crack Dete
 * Select the **prediction resource** created on Step 1
 * Click **Publish**
 
-## Step 7 - 
+
+Now that we have trained and published a custom machine learning model to detect concrete cracks, we will learn how to create an integration workflow that is triggered every time a new image is uploaded to azure storage.
+
+## Step 7 - Create Storage Account
+
+* Login to [Azure Portal](https://portal.azure.com)
+* Select **+ Create a resource**
+* In search box, type **Storage account** and click Enter
+* Select **Create**
+* Your new service should have the following settings:
+ * Project Details:
+    * Subscription: select your preferred subscription for this exercise
+    * Resource group: select your preferred resource group for this exercise
+  * Instance details
+    * Storage account name: crackdetectorstorage<your initials>(please note this name must be unique, try different options if the one you selected is already in use. You can create multiple projects within the same service, we will learn about it in the next steps)
+    * Location: select your preferred region
+    * Performance: Standard
+    * Account kind: StorageV2 (general purpose v2)
+    * Replication: Read-access geo-reducdant storage (RA-GRS)
+    * Blob access tier (default): Hot
+ * Select **Review + create**
+ * Select **Create**
+
+## Step 8 - Create container to upload images
+
+* In azure portal, select the storage account created in previous step
+* Select **Storage Explorer (preview)** on the left side menu
+* Right-click **BLOB CONTAINERS** and select **Create blob container**
+* In the **New Container**, specify the following settings:
+  * Name: **crack-inspection-files**
+  * Public access level: container
+* Select **Create**
+
+## Step 9 - Create Logic App
+
+* Login to [Azure Portal](https://portal.azure.com)
+* Select **+ Create a resource**
+* In search box, type **Logic App** and click Enter
+* Select **Create**
+* Your new service should have the following settings:
+ * Project Details:
+    * Subscription: select your preferred subscription for this exercise
+    * Resource group: select your preferred resource group for this exercise
+  * Instance details
+    * Logic app name: crackdetectorlogapp<your initials>(please note this name must be unique, try different options if the one you selected is already in use. You can create multiple projects within the same service, we will learn about it in the next steps)
+    * select the location: Region
+    * Location: select your preferred region
+    * Log Analytics: Off
+* Select **Review + create**
+* SElect **Create**
 
 
-
-* Select train a model
 
