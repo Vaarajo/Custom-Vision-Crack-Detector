@@ -156,9 +156,20 @@ Now that we have trained and published a custom machine learning model to detect
  
 ## Step 10 - Build Logic App
 
+### Create Trigger when Image is uploaded
 * Select **Blank Logic App +**
 * In search box type **Blob**, select from **Triggers** the option **When a blob is addedd or modified (properties only)**
 * Your new blob trigger should have the following properties:
+  * Connection Name: crackdetectorstorage
+  * Storage Account: select crackdetectorstorage (account created in [step 7](##step-7---create-storage-account)
+  * Container: /crack-inspection-files
+  * Number of blobs to return from the trigger: 1
+  * How often do you want to check for items? 1 minute
+
+### Create Action to call Custom Vision Prediction URL
+* Select **+ New step**
+* In search box type **Custom Vision**, select from **Actions** the option **Classify an image url (V2) (preview)**
+* Your new action should have the following properties:
   * Connection Name: custvision<your initials>
   * Prediction Key:
      * Navigate to https://customvision.ai, open crack detector project and in the top row select **Performance**
@@ -178,4 +189,8 @@ Now that we have trained and published a custom machine learning model to detect
      * Navigate to https://customvision.ai, open crack detector project and in the top row select **Performance**
      * Select **Prediction URL**
      * you can find the model name as part of prediction URL
+ *Image URL: https://<REPLACE WITH NAME OF YOUR STORAGE ACCOUNT.blob.core.windows.net[List of Files Path] 
+     * please note you need to select list of files path from the dynamic content
+     
+                          
 
