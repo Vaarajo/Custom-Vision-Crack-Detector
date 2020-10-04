@@ -37,17 +37,20 @@ Upon completing this lab, you will have hands-on experience with the following f
 * In search box, type **Custom Vision** and click Enter
 * Select **Create**
 * Your new service should have the following settings:
- * Create Options: Both
- * Project Details:
-  * Subscription: select your preferred subscription for this exercise
-  * Resource group: select your preferred resource group for this exercise
-  * Name: custvision<your initials>(please note this name must be unique, try different options if the one you selected is already in use. You can create multiple projects within the same service, we will learn about it in the next steps)
- * Training Resource
-  * Training Location: select your preferred region
-  * Training pricing tier: if available select **Free**, otherwise **Standard**
- * Prediction Resource
-  * Prediction location: select your preferred region, ideally same as selected for Training Resource
-  * Prediction pricing tier: if available select **Free**, otherwise **Standard**
+  * Create Options: Both
+  * Project Details:
+    * Subscription: select your preferred subscription for this exercise
+    * Resource group: select your preferred resource group for this exercise
+    * Name: custvision<your initials>(please note this name must be unique, try different options if the one you selected is already in use. You can create multiple projects within the same service, we will learn about it in the next steps)
+  * Training Resource
+    * Training Location: select your preferred region
+    * Training pricing tier: if available select **Free**, otherwise **Standard**
+  * Prediction Resource
+    * Prediction location: select your preferred region, ideally same as selected for Training Resource
+    * Prediction pricing tier: if available select **Free**, otherwise **Standard**
+ * Select **Review + create**
+ * Select **Create**
+ 
 
 
 ## Step 2 - Create a custom model project with Custom Vision
