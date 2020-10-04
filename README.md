@@ -206,7 +206,7 @@ Now that we have trained and published a custom machine learning model to detect
 * Sign in with a valid email, i.e. with access to outlook
 * Your new action should have the following properties:
    * To: your email address
-   * Subject: Crack Detector Alert on <alert created date>
+   * Subject: Crack Detector Alert on [created date]
    * Body: Please review this image [List of Files Path] we are [Prediction Probability] confident, there is a crack on it!!
  
 ## Step 11 - Run and Test Logic App
