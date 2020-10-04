@@ -203,6 +203,10 @@ Now that we have trained and published a custom machine learning model to detect
 * In **True**, select **Add an action**
 * In search box type **Outlook**, select from **Actions** the option **Send an Email (V2)**
 * Sign in with a valid email, i.e. with access to outlook
+* Your new action should have the following properties:
+   * To: your email address
+   * Subject: Crack Detector Alert on <alert created date>
+   * Body: Please review this image [List of Files Path] we are [Prediction Probability] confident, there is a crack on it!!
 
 
 
