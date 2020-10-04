@@ -189,8 +189,20 @@ Now that we have trained and published a custom machine learning model to detect
      * Navigate to https://customvision.ai, open crack detector project and in the top row select **Performance**
      * Select **Prediction URL**
      * you can find the model name as part of prediction URL
- *Image URL: https://<REPLACE WITH NAME OF YOUR STORAGE ACCOUNT.blob.core.windows.net[List of Files Path] 
+ * Image URL: https://<REPLACE WITH NAME OF YOUR STORAGE ACCOUNT.blob.core.windows.net[List of Files Path] 
      * please note you need to select list of files path from the dynamic content
      
-                          
+### Create Conditional Statement
+* Select **+ New step**
+* In search box type **Control**, select from **Actions** the option **Condition**
+* In **Choose a Value**, please select **Predictions Probabilities**
+* Expand Condition and select
+   * Predictions Probabilities is greater than or equal to 0.75
+   * Select **+ Add** and **Add row**
+   * Predcitions Tag is equal to Positive
+* In **True**, select **Add an action**
+* In search box type **Outlook**, select from **Actions** the option **Send an Email (V2)**
+* Sign in with a valid email, i.e. with access to outlook
+
+
 
