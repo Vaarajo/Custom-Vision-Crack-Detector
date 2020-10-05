@@ -67,6 +67,7 @@ Upon completing this lab, you will have hands-on experience with the following f
   * Domain: General
  * Select **Create Project**
 
+ ![Step 2 Screenshot](/../main/Snapshots/Step%202%20-%20Create%20a%20Custom%20Vision%20Project.PNG?raw=true "Step 2")
 
 ## Step 3 - Upload Training Images
 
@@ -80,11 +81,15 @@ We will now add images for each tag from the corresponding folder in "Crack Dete
 * Click **Done**
 * Repeat this process for the Negative tag **Concrete Cracks Dataset\Train\Negative**
 
+ ![Step 3 Screenshot](/../main/Snapshots/Step%203%20-%20Upload%20Training%20Images.PNG?raw=true "Step 3")
+ 
 ## Step 4 - Train Classification Model
 
 * Select **Train** in top row, towards the right
 * Choose **Quick Training**
 * Click **Train** (please note the training should take a few minutes)
+
+ ![Step 4 Screenshot](/../main/Snapshots/Step%204%20-%20Train%20Classification%20Model.PNG?raw=true "Step 4")
 
 ## Step 5 - Test Classification Model
 
@@ -95,6 +100,8 @@ We will now add images for each tag from the corresponding folder in "Crack Dete
 * Click **Open**
 * Confirm the prediction is correct
 
+ ![Step 5 Screenshot](/../main/Snapshots/Snapshots/Step%205%20-%20Test%20Classification%20Model.PNG?raw=true "Step 5")
+
 ## Step 6 - Publish Classification Model
 
 * Select **Publish** in second top row
@@ -102,8 +109,9 @@ We will now add images for each tag from the corresponding folder in "Crack Dete
 * Select the **prediction resource** created on Step 1
 * Click **Publish**
 
+![Step 6 Screenshot](/../main/Snapshots/Snapshots/Step%206%20-%20Publish%20Classification%20Model.PNG?raw=true "Step 6")
 
-Now that we have trained and published a custom machine learning model to detect concrete cracks, we will learn how to create an integration workflow that is triggered every time a new image is uploaded to azure storage.
+**Now that we have trained and published a custom machine learning model to detect concrete cracks, we will learn how to create an integration workflow that is triggered every time a new image is uploaded to azure storage.**
 
 ## Step 7 - Create Storage Account
 
@@ -125,6 +133,9 @@ Now that we have trained and published a custom machine learning model to detect
  * Select **Review + create**
  * Select **Create**
 
+![Step 7 Screenshot](/../main/Snapshots/Snapshots/Step%207%20-%20Create%20Storage%20Account.PNG?raw=true "Step 7")
+
+
 ## Step 8 - Create container to upload images
 
 * In azure portal, select the storage account created in previous step
@@ -135,6 +146,8 @@ Now that we have trained and published a custom machine learning model to detect
   * Public access level: container
 * Select **Create**
 * Upload sample image from **Concrete Cracks Dataset\Train\Positive**
+
+![Step 8 Screenshot](/../main/Snapshots/Snapshots/Step%208%20-%20Create%20container%20to%20upload%20images.PNG?raw=true "Step 8")
 
 ## Step 9 - Create Logic App
 
@@ -155,6 +168,8 @@ Now that we have trained and published a custom machine learning model to detect
 * Select **Create**
 * When the deployment is complete, select **Go to resource**
  
+
+ 
 ## Step 10 - Build Logic App
 
 ### Create Trigger when Image is uploaded
@@ -166,6 +181,8 @@ Now that we have trained and published a custom machine learning model to detect
   * Container: /crack-inspection-files
   * Number of blobs to return from the trigger: 1
   * How often do you want to check for items? 1 minute
+  
+  ![Step 10 Screenshot](/../main/Snapshots/Snapshots/Step%2010%20-%20Build%20Logic%20App%20-%20Blob%20Trigger.PNG?raw=true "Step 10")
 
 ### Create Action to call Custom Vision Prediction URL
 * Select **+ New step**
@@ -192,11 +209,16 @@ Now that we have trained and published a custom machine learning model to detect
      * you can find the model name as part of prediction URL
  * Image URL: https://<REPLACE WITH NAME OF YOUR STORAGE ACCOUNT.blob.core.windows.net[List of Files Path] 
      * please note you need to select list of files path from the dynamic content
-     
+
+ ![Step 10 Screenshot](/../main/Snapshots/Snapshots/Step%2010%20-%20Build%20Logic%20App%20-%20Custom%20Vision%20Action.PNG?raw=true "Step 10")
+
 ### Create Conditional Statement
 * Select **+ New step**
 * In search box type **Control**, select from **Actions** the option **Condition**
 * In **Choose a Value**, please select **Predictions Probabilities**
+
+    ![Step 10 Screenshot](/../main/Snapshots/Snapshots/Step%2010%20-%20Build%20Logic%20App%20-%20Conditional.PNG?raw=true "Step 10")
+
 * Expand Condition and select
    * Predictions Probabilities is greater than or equal to 0.75
    * Select **+ Add** and **Add row**
@@ -208,6 +230,8 @@ Now that we have trained and published a custom machine learning model to detect
    * To: your email address
    * Subject: Crack Detector Alert on [created date]
    * Body: Please review this image [List of Files Path] we are [Prediction Probability] confident, there is a crack on it!!
+   
+    ![Step 10 Screenshot](/../main/Snapshots/Snapshots/Step%2010%20-%20Build%20Logic%20App%20-%20Email%20Action.PNG?raw=true "Step 10")
  
 ## Step 11 - Run and Test Logic App
 
